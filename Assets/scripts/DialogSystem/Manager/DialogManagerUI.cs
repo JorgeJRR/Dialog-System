@@ -28,6 +28,10 @@ public class DialogManagerUI : MonoBehaviour
     [Header("Dialog Settings")]
     [SerializeField]
     private float dialogSpeed;
+    [SerializeField]
+    public float SpeakerPortraitAlpha;
+    [SerializeField]
+    public float ListenerPortraitAlpha;
 
     [Header("Transcript Elements")]
     [SerializeField]
@@ -101,6 +105,7 @@ public class DialogManagerUI : MonoBehaviour
         foreach (DialogInfo dialog in dialogs)
         {
             AddDialogToTranscript(dialog);
+            SetDialogueVisuals(dialog.isPlayer);
 
             foreach (char letter in dialog.dialog)
             {
@@ -115,8 +120,25 @@ public class DialogManagerUI : MonoBehaviour
         PrepareTranscriptElements();
     }
 
+    private void SetDialogueVisuals(bool isPlayer)
+    {
+        if (isPlayer)
+        {
+            playerPortrait.color = new Color(255,255,255,1);
+            npcPortrait.color = new Color(255, 255, 255, 0.5f);
+        }
+        else
+        {
+            playerPortrait.color = new Color(255, 255, 255, 0.5f);
+            npcPortrait.color = new Color(255, 255, 255, 1);
+        }
+    }
+
     public void PrepareTranscriptElements()
     {
+        playerPortrait.color = new Color(255, 255, 255, 1);
+        npcPortrait.color = new Color(255, 255, 255, 1);
+
         openTranscriptBtn.gameObject.SetActive(true);
     }
 
