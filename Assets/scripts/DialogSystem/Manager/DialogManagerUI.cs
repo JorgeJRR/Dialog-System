@@ -57,10 +57,8 @@ public class DialogManagerUI : MonoBehaviour
 
     private DialogHandler CreateDialog()
     {
-        // Instantiate el prefab y obtiene el componente DialogHandler
         GameObject obj = Instantiate(dialogPrefab, prefabParent.transform);
         DialogHandler handler = obj.GetComponent<DialogHandler>();
-        // Asegúrate de que el objeto esté inicialmente inactivo.
         obj.SetActive(false);
         return handler;
     }
