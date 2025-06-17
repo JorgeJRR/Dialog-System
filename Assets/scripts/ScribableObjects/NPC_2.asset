@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 414d2fbf9cdaab74fb5d4cec383271aa, type: 3}
-  m_Name: NPC_Test
+  m_Name: NPC_2
   m_EditorClassIdentifier: 
-  portrait: {fileID: 21300000, guid: 8886efd71b24f2f4694c78137d678b17, type: 3}
-  NpcName: Robert
+  portrait: {fileID: 21300000, guid: 0bef89150b5b1fa459007b0c629df854, type: 3}
+  NpcName: Albert
   dialogs:
-  - dialog: Hi, my name is robert
+  - dialog: Hi PLayer! thanks for Talk with me
     isPlayer: 0
-  - dialog: Nice to meet you Robert, I'm Player
+  - dialog: thanks for be a NPC on my Game
     isPlayer: 1
-  - dialog: nice to meet you too player
+  - dialog: NPC?
     isPlayer: 0
-  - dialog: Is your Dialog System working fine?
-    isPlayer: 0
-  - dialog: I'm Testing that right now!
+  - dialog: dont think about that, see you latter!
     isPlayer: 1
+  - dialog: bye
+    isPlayer: 0

@@ -44,6 +44,7 @@ public class DialogManagerUI : MonoBehaviour
 
     public void Awake()
     {
+        activeDialogs = new List<DialogHandler>();
         dialogPool = new ObjectPool<DialogHandler>(CreateDialog, OnGetFromPool, OnReleaseToPool, OnDestroyDialog);
 
         int initialPoolSize = 10;

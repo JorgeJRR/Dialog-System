@@ -125,9 +125,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf8c5706313b3474bace5623dc727aaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panelRT: {fileID: 0}
-  dialogRT: {fileID: 0}
-  dialogText: {fileID: 0}
+  panelRT: {fileID: 4287549014616792780}
+  dialogRT: {fileID: 6462300325856975198}
+  dialogText: {fileID: 2191689287519848753}
 --- !u!1 &7124886238269260241
 GameObject:
   m_ObjectHideFlags: 0
