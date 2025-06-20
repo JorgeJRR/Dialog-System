@@ -24,6 +24,8 @@ public class DialogManagerUI : MonoBehaviour
     private TMP_Text npcNameTxt;
     [SerializeField]
     private GameObject openTranscriptBtn;
+    [SerializeField]
+    private GameObject closeDialogBtn;
 
     [Header("Dialog Settings")]
     [SerializeField]
@@ -45,6 +47,8 @@ public class DialogManagerUI : MonoBehaviour
 
     private ObjectPool<DialogHandler> dialogPool;
     private List<DialogHandler> activeDialogs;
+
+    private Coroutine currentDialogRoutine;
 
     public void Awake()
     {
@@ -97,7 +101,7 @@ public class DialogManagerUI : MonoBehaviour
 
         dialogTxt.text = "";
 
-        StartCoroutine(ShowDialogs(NpcData.dialogs));
+        currentDialogRoutine = StartCoroutine(ShowDialogs(NpcData.dialogs));
     }
 
     private IEnumerator ShowDialogs(List<DialogInfo> dialogs)
@@ -136,10 +140,16 @@ public class DialogManagerUI : MonoBehaviour
 
     public void PrepareTranscriptElements()
     {
+        if (currentDialogRoutine != null)
+        {
+            StopCoroutine(currentDialogRoutine);
+            currentDialogRoutine = null;
+        }
         playerPortrait.color = new Color(255, 255, 255, 1);
         npcPortrait.color = new Color(255, 255, 255, 1);
 
         openTranscriptBtn.gameObject.SetActive(true);
+        closeDialogBtn.SetActive(true);
     }
 
     public void OpenTranscription()
@@ -171,9 +181,13 @@ public class DialogManagerUI : MonoBehaviour
         activeDialogs.Clear();
     }
 
-    private void FinishDialogs()
+    public void FinishDialogs()
     {
         dialogUI.SetActive(false);
+        ClearTranscript();
+        transcriptPanel.SetActive(false);
+        openTranscriptBtn.SetActive(false);
+        closeDialogBtn.SetActive(false);
     }
 
 }
